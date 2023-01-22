@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<center><p>Image to use:</p></center>
+<center><img id="image1" src="Nature.jfif" alt="The Scream" width="220" height="277"></center>
+
+<center><p>Canvas to fill:</p></center>
+<center><canvas id="myCanvas" width="220" height="277"
+style="border:1px solid #d3d3d3;"></center>
+</canvas>
+
+<center><p><button onclick="myCanvas()">Try it</button></p></center>
+
+<script>
+function myCanvas() {
+  var c = document.getElementById("myCanvas");
+  var ctx = c.getContext("2d");
+  var img = document.getElementById("image1");
+  //imagename,x,y
+  ctx.drawImage(img,0,0);
+}
+</script>
+
+</body>
+</html>

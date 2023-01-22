@@ -1,0 +1,58 @@
+<html>
+<head>
+</head>
+<body>
+	<canvas id="my_canvas" width="35" height="230"  style="border:2px solid #000000;"></canvas>
+<script>
+var my_canvas=document.getElementById("my_canvas");
+var gctx=my_canvas.getContext("2d");
+
+var data = [['Class-5',140],['Class-4',150],['Class-3',170],['Class-2',110],['Class-1',170]];
+
+///////// Settings  ////////// 
+
+var bar_width=30;
+var y_gap=30;  // Gap below the graph 
+var bar_gap=100; // Gap between Bars including width of the bar
+var x= 20; // Margin of graph from left  
+
+y=my_canvas.height - y_gap ;
+
+my_canvas.width=data.length * (  bar_gap)  + x  ;
+////////////end of settings ////
+gctx.moveTo(x-5,y);
+gctx.lineTo(my_canvas.width,y); // Base line of graph 
+gctx.stroke();
+/// add shadow ///
+/*gctx.shadowColor = '#000000';
+gctx.shadowOffsetX=3;
+gctx.shadowOffsetY=3;
+gctx.shadowBlur = 3;*/
+/////////// Draw the graph ////////
+
+for (i=0;i<data.length;i++){
+//gctx.shadowColor = '#ffffff'; // remove this line if you shadow on text is required
+	gctx.font = '18px serif'; // font for base label showing classes 
+	gctx.textAlign='left';
+	gctx.textBaseline='top';
+	gctx.fillStyle= '#008cf5';
+	gctx.fillText(data[i][0], x,y+5); // Write base text for classes 
+
+	gctx.beginPath();
+	gctx.lineWidth=2;
+	y1=y-data[i][1]; // Coordinate for top of the Bar 
+	x1 = x;    
+	gctx.font = '12px serif'; // font at top of the bar 
+	gctx.fillStyle= '#000000';
+	gctx.fillText(data[i][1], x1,y1-10); // text at top of the bar 
+
+	gctx.fillStyle= '#f52369'; // fill Colur of bar  
+	//gctx.shadowColor = '#000000'; // shadow color for bars 
+	gctx.fillRect(x1,y1,bar_width,data[i][1]);// Filled bar 
+
+	x=x+bar_gap
+
+}// end of for loop 
+</script>
+</body>
+</html>

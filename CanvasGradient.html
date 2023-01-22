@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<center><h1>Draw Linear Gradient using Canvas</h1></center>
+	<center><canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;"></center>
+	</canvas>
+	<script>
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+		// Create gradient
+		//x0,y0,x1,y1
+		var grd = ctx.createLinearGradient(0,0,200,0);
+		grd.addColorStop(0,"blue");
+		grd.addColorStop(1,"black");
+		// Fill with gradient
+		ctx.fillStyle = grd;
+		//x,y,height,width
+		ctx.fillRect(10,10,150,80);
+</script>
+</body>
+</html>

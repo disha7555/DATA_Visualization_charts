@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+	<center><h1> Canvas Demo without border </h1></center>
+	<center><canvas id="myCanvas1" width="200" height="100" ><br/></canvas>
+		
+	</canvas>
+
+	<center><h1> Canvas Demo with border </h1>
+	<canvas id="myCanvas2" width="200" height="100" style="border:1px solid #000000;"><br/>
+		
+	</canvas></center>
+
+	<h1> Draw Circle using canvas </h1>
+	<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+		Your browser does not support the HTML canvas tag.
+	</canvas>
+	<script>
+		var c = document.getElementById("myCanvas");
+		<!-- this method returns a drawing context on the canvas!>
+		var ctx = c.getContext("2d");
+		<!-- this method begins a path!>
+		ctx.beginPath();
+		<!-- this method creates an arc or curve!>
+		ctx.arc(95,50,40,0,2*Math.PI);
+		<!-- this method actually draws the path we defined!>
+		ctx.stroke();
+	</script> 
+
+</body>
+</html>
